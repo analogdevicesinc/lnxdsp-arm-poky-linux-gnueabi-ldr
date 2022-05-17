@@ -1,0 +1,119 @@
+2022-03-23 Stuart Smith <stuart.smith@analog.com>
+
+	* lfd_sc589.c: Removed SC590 and SC590W support.
+
+2021-08-31 Andy Koppe <andy.koppe@analog.com>
+
+	* config.rpath: Add empty file.
+	* Makefile.in: Regenerate.
+	* gnulib/lib/Makefile.in: Regenerate.
+	* tests/Makefile.in: Regenerate.
+
+2021-08-12 Andy Koppe <andy.koppe@analog.com>
+
+	* configure.ac: Set VERSION to 1.0.0.
+	* configure: Regenerate.
+	* ldr.c: Use executable name in version and usage output.
+
+2021-08-11 Andy Koppe <andy.koppe@analog.com>
+
+	* lfd.c: Create separate first block for initcodes. Use initcode's
+	ELF entry address instead of hardcoded 0x20080000. Put main
+	executable's entry address into final block.
+	* lfd_sc589.c: Likewise. Also drop --bmode argument check.
+
+2021-08-06 Andy Koppe <andy.koppe@analog.com>
+
+	* lfd_sc589.c: Add SC598 family targets.
+	* ldr_elf.c: Accept ELFCLASS64 input (for AArch64).
+	* ldr_elf.h: Likewise.
+	* lfd.c: Likewise.
+
+2021-08-05 Andy Koppe <andy.koppe@analog.com>
+
+	* lfd.c: Drop dependency on adi-processors.def.
+	* lfd.h: Likewise.
+	* lfd_bf506.c: Likewise.
+	* lfd_bf518.c: Likewise.
+	* lfd_bf527.c: Likewise.
+	* lfd_bf533.c: Likewise.
+	* lfd_bf537.c: Likewise.
+	* lfd_bf548.c: Likewise.
+	* lfd_bf561.c: Likewise.
+	* lfd_bf592.c: Likewise.
+	* lfd_bf609.c: Likewise.
+	* lfd_sc589.c: Likewise.
+
+2020-02-12 Stuart Smith <stuart.smith@analog.com>
+
+	* lfd_sc589.c: Updated ADSP-SC59x supported parts.
+
+2019-06-11 Andy Koppe <andy.koppe@analog.com>
+
+	* ldr.c: Refer to SC5xx rather than SC58x.
+	* ldr.h: Likewise.
+	* lfd.c: Drop implicit revision none/any support, replace fixed-length
+	buffer with dynamic one, and tidy up error reporting.
+	* lfd.h: Drop revision none/any comment.
+	* lfd_sc589.c: Replace SC58x and SC57x targets with a single SC5xx target
+	that also supports SC59x processors.
+
+2016-10-28  Murray Anderson  <murray.anderson@analog.com>
+
+	* adi-processors.def: Remove revision 0.0 from ADSP-SC58x.
+
+2016-10-27  Murray Anderson  <murray.anderson@analog.com>
+
+	* lfd_sc589.c: Add target and alias for ADSP-SC57x
+
+2016-07-15  Jie Zhang  <jie.zhang@analog.com>
+
+	* adi-processors.def: Remove ADuCM3027 and ADuCM3029.
+
+2016-06-03 David Leitch <dleitch@analog.com>
+	* adi-processors.def: Removed ADuCM3025 references.
+
+2014-11-07 Stuart Henderson <shenders@gcc.gnu.org>
+
+	* lfd_bf548.c (_bf548_lfd_write_header): Fix padding maths.
+	(bf54x_lfd_write_block): Likewise.
+	* lfd_sc589.c (_sc589_lfd_write_header): Likewise.
+	(sc58x_lfd_write_block): Likewise.
+
+2014-09-25 Stuart Henderson <shenders@gcc.gnu.org>
+
+	* ldr.c (create_long_opts): Add bcode.
+	(create_opts_help): Likewise.
+	(read_number): New function.
+	(create_ldr): Add bcode entries and call read_number.
+	* ldr.h (ldr_create_options): Add bcode.
+	* lfd_sc589.c (sc58x_lfd_display_dxe): Non-zero bcodes now valid.
+	(sc58x_lfd_write_block): Write bcode to block_code_base.
+
+2014-09-03 Stuart Henderson <shenders@gcc.gnu.org>
+
+	* lfd.h (lfd_target): Add dyn_sections.
+	* lfd.c (lfd_create): Only warn on dynamic sections if !dyn_sections.
+	* lfd_bf506.c (bf506_lfd_target): Add dyn_sections.
+	* lfd_bf518.c (bf518_lfd_target): Likewise.
+	* lfd_bf527.c (bf527_lfd_target): Likewise.
+	* lfd_bf533.c (bf533_lfd_target): Likewise.
+	* lfd_bf537.c (bf537_lfd_target): Likewise.
+	* lfd_bf548.c (bf548_lfd_target): Likewise.
+	* lfd_bf561.c (bf561_lfd_target): Likewise.
+	* lfd_bf592.c (bf592_lfd_target): Likewise.
+	* lfd_bf609.c (bf609_lfd_target): Likewise.
+	* lfd_sc589.c (sc589_lfd_target): Likewise.
+
+2014-08-18 Stuart Henderson <shenders@gcc.gnu.org>
+
+	* ldr.c (load_long_opts): Add --ack switch.
+	(load_opts_help): Likewise.
+	(load_ldr): Likewise.
+	* ldr.h: Likewise.
+	* lfd.c: Add an acknowledgement wait.
+
+2014-07-25 David Gibson <wintee@gmail.com>
+
+	* adi-processors.def: Removed unwanted parts
+	* lfd_sc589.c: Removed unwanted parts

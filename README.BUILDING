@@ -1,0 +1,55 @@
+This document gives a basic guide on how to build the GNU ARM toolchain
+products as provided by Analog Devices.
+
+Notes:
+
+* This product is built and tested using Ubuntu 16.04 LTS 32-bit.
+  It is also tested on Ubuntu 16.04 LTS 64-bit.
+
+* Building the toolchains is NOT supported on a Windows host.
+
+* While the toolchain may build on other flavours of Linux, Analog Devices
+  does not support these. Analog Devices does not provide support for the
+  rebuilding of the toolchain components or for binaries other than those
+  provided as part of CCES.
+
+* The top-level Makefile contains rules for building several components.
+  The following components of CCES are built using this top-level Makefile:
+    * GCC
+    * GCC prerequisites (GMP, ISL, MPF)
+    * Newlib
+    * Glibc
+    * binutils
+    * loader
+    * GDB
+
+Before building any components:
+* It is recommended that you install the package prerequisites before
+  building any components.
+  Run the command:
+    scripts/install_packages_ubuntu.sh
+  This script will require sudo access.
+
+Things that will not work outside of ADI:
+* Downloading Linux kernel sources from internal ADI repository.
+* Download local package mirrors from internal ADI repository.
+* Importing processor define headers and XML from internal ADI repository.
+
+Build Instructions:
+* Each build of the toolchain builds in its own build space, beneath the
+  build directory, and is installed into its own space beneath the output
+  directory.
+
+* To build the Linux-hosted bare metal toolchain:
+    make install_arm_none_eabi_toolchain_release
+
+* To build the Windows-hosted bare metal toolchain:
+    make install_arm_none_eabi_toolchain_release BUILD_WINDOWS_CROSS=yes
+
+* To build the Linux-hosted Linux-targeting toolchain:
+  You will need to ensure that the kernel sources that you use can be
+  downloaded into the gnu-arm/src directory in order for the toolchain to build
+
+    make install_arm_linux_gnueabi_toolchain_release
+
+* Building the Linux-targeting toolchain on Windows is not supported.
