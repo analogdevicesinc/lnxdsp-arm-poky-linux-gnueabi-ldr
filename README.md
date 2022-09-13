@@ -7,19 +7,13 @@ To put it simply, LDRs are just a container format for DXEs (which are just a fa
 
 ## Getting Started
 
-* To build the Linux-hosted bare metal toolchain:
-    make install_arm_none_eabi_toolchain_release
+To build and install the Linux-hosted bare metal toolchain:  
+    cd src/ldr  
+    ./configure  
+    make  
+    make install  
 
-* To build the Windows-hosted bare metal toolchain:
-    make install_arm_none_eabi_toolchain_release BUILD_WINDOWS_CROSS=yes
-
-* To build the Linux-hosted Linux-targeting toolchain:
-  You will need to ensure that the kernel sources that you use can be
-  downloaded into the gnu-arm/src directory in order for the toolchain to build
-
-    make install_arm_linux_gnueabi_toolchain_release
-
-* Building the Linux-targeting toolchain on Windows is not supported.
+See the [INSTALL](./src/ldr/INSTALL) file for additional details.
 
 ## License
 See the [LICENSE](./LICENSE) file for details.
