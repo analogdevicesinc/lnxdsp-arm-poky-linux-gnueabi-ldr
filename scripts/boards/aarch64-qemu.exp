@@ -1,5 +1,0 @@
-load_generic_config "sim"
-load_base_board_description "basic-sim"
-set_board_info ldflags "-mproc=$part"
-set_board_info compiler "[find_gcc]"
-setup_sim aarch64

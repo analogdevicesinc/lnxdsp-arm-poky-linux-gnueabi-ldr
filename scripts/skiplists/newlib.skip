@@ -1,2 +1,0 @@
-# Newlib isn't built with UTF-8 suport (CCES-17197):
-newlib.locale/UTF-8.exp
